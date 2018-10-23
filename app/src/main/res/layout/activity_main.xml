@@ -6,4 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/numbers_activity_link"
+        style="@style/categoryStyle"
+        android:text="@string/numbers"
+        android:background="@android:color/holo_orange_dark"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="openNumbersActivity"/>
+
+    <TextView
+        android:id="@+id/family_acitivity_link"
+        style="@style/categoryStyle"
+        android:text="@string/family"
+        android:background="@android:color/holo_green_dark"
+        app:layout_constraintTop_toBottomOf="@+id/numbers_activity_link"
+        android:onClick="openFamilyActivity"/>
+
+    <TextView
+        android:id="@+id/colors_activity_link"
+        style="@style/categoryStyle"
+        android:text="@string/colors"
+        android:background="@android:color/holo_purple"
+        app:layout_constraintTop_toBottomOf="@+id/family_acitivity_link"
+        android:onClick="openColorsActivity"/>
+
+    <TextView
+        android:id="@+id/phrases_activity_link"
+        style="@style/categoryStyle"
+        android:text="@string/phrases"
+        android:background="@android:color/holo_blue_dark"
+        app:layout_constraintTop_toBottomOf="@+id/colors_activity_link"
+        android:onClick="openPhrasesActivity"/>
 </android.support.constraint.ConstraintLayout>
