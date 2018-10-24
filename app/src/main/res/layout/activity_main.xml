@@ -15,7 +15,7 @@
         android:onClick="openNumbersActivity"/>
 
     <TextView
-        android:id="@+id/family_acitivity_link"
+        android:id="@+id/family_activity_link"
         style="@style/categoryStyle"
         android:text="@string/family"
         android:background="@android:color/holo_green_dark"
@@ -27,7 +27,7 @@
         style="@style/categoryStyle"
         android:text="@string/colors"
         android:background="@android:color/holo_purple"
-        app:layout_constraintTop_toBottomOf="@+id/family_acitivity_link"
+        app:layout_constraintTop_toBottomOf="@+id/family_activity_link"
         android:onClick="openColorsActivity"/>
 
     <TextView

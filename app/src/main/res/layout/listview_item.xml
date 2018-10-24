@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/english_word"
+        style="@style/listview_item_style"/>
+
+    <TextView
+        android:id="@+id/miwok_word"
+        style="@style/listview_item_style"
+        app:layout_constraintTop_toBottomOf="@+id/english_word" />
+
+</android.support.constraint.ConstraintLayout>
