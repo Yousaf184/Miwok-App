@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".PhrasesActivity">
 
+    <ListView
+        android:id="@+id/phrases_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/colorPrimary"
+        android:dividerHeight="2dp">
+    </ListView>
+
 </android.support.constraint.ConstraintLayout>

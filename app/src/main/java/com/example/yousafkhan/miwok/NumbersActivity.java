@@ -35,7 +35,7 @@ public class NumbersActivity extends AppCompatActivity {
     }
 
     private void populateNumbersListView() {
-        ListView listView = findViewById(R.id.numbersList);
+        ListView listView = findViewById(R.id.numbers_listview);
         NumbersAdapter numbersAdapter = new NumbersAdapter(this, this.numbersList);
         listView.setAdapter(numbersAdapter);
     }
