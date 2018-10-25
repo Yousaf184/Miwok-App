@@ -22,16 +22,16 @@ public class NumbersActivity extends AppCompatActivity {
 
     private void populateNumbersList() {
         this.numbersList = new ArrayList<>();
-        this.numbersList.add(new Translation("one", "lutti"));
-        this.numbersList.add(new Translation("two", "otiiko"));
-        this.numbersList.add(new Translation("three", "tolookosu"));
-        this.numbersList.add(new Translation("four", "oyyisa"));
-        this.numbersList.add(new Translation("five", "massokka"));
-        this.numbersList.add(new Translation("six", "temokka"));
-        this.numbersList.add(new Translation("seven", "kenekaku"));
-        this.numbersList.add(new Translation("eight", "kawinta"));
-        this.numbersList.add(new Translation("nine", "wo'e"));
-        this.numbersList.add(new Translation("ten", "na'aacha"));
+        this.numbersList.add(new Translation("one", "lutti", R.drawable.number_one));
+        this.numbersList.add(new Translation("two", "otiiko", R.drawable.number_two));
+        this.numbersList.add(new Translation("three", "tolookosu", R.drawable.number_three));
+        this.numbersList.add(new Translation("four", "oyyisa", R.drawable.number_four));
+        this.numbersList.add(new Translation("five", "massokka", R.drawable.number_five));
+        this.numbersList.add(new Translation("six", "temokka", R.drawable.number_six));
+        this.numbersList.add(new Translation("seven", "kenekaku", R.drawable.number_seven));
+        this.numbersList.add(new Translation("eight", "kawinta", R.drawable.number_eight));
+        this.numbersList.add(new Translation("nine", "wo'e", R.drawable.number_nine));
+        this.numbersList.add(new Translation("ten", "na'aacha", R.drawable.number_ten));
     }
 
     private void populateNumbersListView() {

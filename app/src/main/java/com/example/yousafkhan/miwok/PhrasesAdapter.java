@@ -39,10 +39,13 @@ public class PhrasesAdapter extends ArrayAdapter<Translation> {
         holder.englishTextView.setText(translation.getEnglishTranslation());
         holder.miwokTextView.setText(translation.getMiwokTranslation());
 
+        // hide the imageview in phrases listview item layout
+        convertView.findViewById(R.id.image_icon).setVisibility(View.INVISIBLE);
+
         return convertView;
     }
 
-    static class ViewHolder {
+    private static class ViewHolder {
         private TextView englishTextView;
         private TextView miwokTextView;
     }

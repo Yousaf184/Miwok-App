@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class ColorsAdapter extends ArrayAdapter<Translation> {
             holder = new ViewHolder();
             holder.englishTextView = convertView.findViewById(R.id.english_word);
             holder.miwokTextView = convertView.findViewById(R.id.miwok_word);
+            holder.imageResource = convertView.findViewById(R.id.image_icon);
 
             convertView.setTag(holder);
         }
@@ -36,14 +38,16 @@ public class ColorsAdapter extends ArrayAdapter<Translation> {
 
         Translation translation = getItem(position);
 
+        holder.imageResource.setImageResource(translation.getImageResourceID());
         holder.englishTextView.setText(translation.getEnglishTranslation());
         holder.miwokTextView.setText(translation.getMiwokTranslation());
 
         return convertView;
     }
 
-    static class ViewHolder {
+    private static class ViewHolder {
         private TextView englishTextView;
         private TextView miwokTextView;
+        private ImageView imageResource;
     }
 }
