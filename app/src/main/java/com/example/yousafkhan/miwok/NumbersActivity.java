@@ -1,5 +1,6 @@
 package com.example.yousafkhan.miwok;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,11 +11,12 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class NumbersActivity extends AppCompatActivity {
+public class NumbersActivity extends AppCompatActivity implements AudioManager.OnAudioFocusChangeListener {
 
     private ArrayList<Translation> numbersList;
     private ListView listView;
     private MediaPlayer mediaPlayer;
+    private AudioManager audioManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,13 @@ public class NumbersActivity extends AppCompatActivity {
                     mediaPlayer.stop();
                 }
 
+                // request audio focus
+                audioManager = (AudioManager) NumbersActivity.this.getSystemService(AUDIO_SERVICE);
+
+                audioManager.requestAudioFocus(NumbersActivity.this,
+                                                AudioManager.STREAM_MUSIC,
+                                                AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+
                 Translation item = numbersList.get(position);
 
                 mediaPlayer = MediaPlayer.create(NumbersActivity.this, item.getAudioResourceID());
@@ -75,6 +84,9 @@ public class NumbersActivity extends AppCompatActivity {
                 if(mediaPlayer != null) {
                     mediaPlayer.release();
                     mediaPlayer = null;
+
+                    // unregister the audio focus change listener
+                    audioManager.abandonAudioFocus(NumbersActivity.this);
                 }
             }
         });
@@ -88,6 +100,36 @@ public class NumbersActivity extends AppCompatActivity {
             mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
+        }
+    }
+
+    @Override
+    public void onAudioFocusChange(int focusChange) {
+        switch (focusChange) {
+            case AudioManager.AUDIOFOCUS_GAIN:
+                // focus gained, start audio
+                mediaPlayer.start();
+                break;
+
+            case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
+                // app has lost the audio focus for short amount of time
+                mediaPlayer.pause();
+                mediaPlayer.seekTo(0);
+                break;
+
+            case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+                // app has lost audio focus for short amount of time but is allowed
+                // to play audio at a low volume
+                mediaPlayer.pause();
+                mediaPlayer.seekTo(0);
+                break;
+
+            case AudioManager.AUDIOFOCUS_LOSS:
+                // app has lost the audio focus
+                mediaPlayer.stop();
+                mediaPlayer.release();
+                mediaPlayer = null;
+                break;
         }
     }
 
