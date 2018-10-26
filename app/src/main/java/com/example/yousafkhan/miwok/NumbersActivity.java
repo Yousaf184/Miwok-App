@@ -61,17 +61,20 @@ public class NumbersActivity extends AppCompatActivity implements AudioManager.O
                 // request audio focus
                 audioManager = (AudioManager) NumbersActivity.this.getSystemService(AUDIO_SERVICE);
 
-                audioManager.requestAudioFocus(NumbersActivity.this,
+                int requestStatus = audioManager.requestAudioFocus(NumbersActivity.this,
                                                 AudioManager.STREAM_MUSIC,
                                                 AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
-                Translation item = numbersList.get(position);
+                if(requestStatus == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
 
-                mediaPlayer = MediaPlayer.create(NumbersActivity.this, item.getAudioResourceID());
-                mediaPlayer.start();
+                    Translation item = numbersList.get(position);
 
-                // set audio completion listener on newly created MediaPlayer instance
-                setAudioCompletionListener();
+                    mediaPlayer = MediaPlayer.create(NumbersActivity.this, item.getAudioResourceID());
+                    mediaPlayer.start();
+
+                    // set audio completion listener on newly created MediaPlayer instance
+                    setAudioCompletionListener();
+                }
             }
         });
     }

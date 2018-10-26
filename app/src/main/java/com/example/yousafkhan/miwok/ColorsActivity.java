@@ -61,18 +61,20 @@ public class ColorsActivity extends AppCompatActivity implements AudioManager.On
                 // request audio focus
                 audioManager = (AudioManager) ColorsActivity.this.getSystemService(AUDIO_SERVICE);
 
-                audioManager.requestAudioFocus(ColorsActivity.this,
+                int requestStatus = audioManager.requestAudioFocus(ColorsActivity.this,
                                                   AudioManager.STREAM_MUSIC,
                                                   AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
+                // if audio focus request granted
+                if(requestStatus == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    Translation item = colorsList.get(position);
 
-                Translation item = colorsList.get(position);
+                    mediaPlayer = MediaPlayer.create(ColorsActivity.this, item.getAudioResourceID());
+                    mediaPlayer.start();
 
-                mediaPlayer = MediaPlayer.create(ColorsActivity.this, item.getAudioResourceID());
-                mediaPlayer.start();
-
-                // set audio completion listener on newly created MediaPlayer instance
-                setAudioCompletionListener();
+                    // set audio completion listener on newly created MediaPlayer instance
+                    setAudioCompletionListener();
+                }
             }
         });
     }

@@ -62,17 +62,20 @@ public class FamilyActivity extends AppCompatActivity implements AudioManager.On
                 // request audio focus
                 audioManager = (AudioManager) FamilyActivity.this.getSystemService(AUDIO_SERVICE);
 
-                audioManager.requestAudioFocus(FamilyActivity.this,
+                int requestStatus = audioManager.requestAudioFocus(FamilyActivity.this,
                                                 AudioManager.STREAM_MUSIC,
                                                 AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
-                Translation item = familyList.get(position);
+                if(requestStatus == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
 
-                mediaPlayer = MediaPlayer.create(FamilyActivity.this, item.getAudioResourceID());
-                mediaPlayer.start();
+                    Translation item = familyList.get(position);
 
-                // set audio completion listener on newly created MediaPlayer instance
-                setAudioCompletionListener();
+                    mediaPlayer = MediaPlayer.create(FamilyActivity.this, item.getAudioResourceID());
+                    mediaPlayer.start();
+
+                    // set audio completion listener on newly created MediaPlayer instance
+                    setAudioCompletionListener();
+                }
             }
         });
     }

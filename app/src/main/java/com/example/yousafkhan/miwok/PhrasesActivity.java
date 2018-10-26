@@ -60,17 +60,20 @@ public class PhrasesActivity extends AppCompatActivity implements AudioManager.O
                 // request audio focus
                 audioManager = (AudioManager) PhrasesActivity.this.getSystemService(AUDIO_SERVICE);
 
-                audioManager.requestAudioFocus(PhrasesActivity.this,
+                int requestStatus = audioManager.requestAudioFocus(PhrasesActivity.this,
                         AudioManager.STREAM_MUSIC,
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
-                Translation item = phrasesList.get(position);
+                if(requestStatus == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
 
-                mediaPlayer = MediaPlayer.create(PhrasesActivity.this, item.getAudioResourceID());
-                mediaPlayer.start();
+                    Translation item = phrasesList.get(position);
 
-                // set audio completion listener on newly created MediaPlayer instance
-                setAudioCompletionListener();
+                    mediaPlayer = MediaPlayer.create(PhrasesActivity.this, item.getAudioResourceID());
+                    mediaPlayer.start();
+
+                    // set audio completion listener on newly created MediaPlayer instance
+                    setAudioCompletionListener();
+                }
             }
         });
     }
