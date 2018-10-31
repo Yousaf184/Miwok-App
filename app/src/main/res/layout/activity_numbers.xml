@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NumbersActivity">
+    tools:context=".NumbersActivity"
+    android:id="@+id/numbersActivity_layout">
 
-    <ListView
-        android:id="@+id/numbers_listview"
+    <fragment
+        android:name="com.example.yousafkhan.miwok.NumbersFragment"
+        android:id="@+id/numberFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@color/colorPrimary"
-        android:dividerHeight="2dp">
-    </ListView>
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>

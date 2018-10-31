@@ -6,12 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".FamilyActivity">
 
-    <ListView
-        android:id="@+id/family_listview"
+    <fragment
+        android:name="com.example.yousafkhan.miwok.FamilyFragment"
+        android:id="@+id/family_fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@color/colorPrimary"
-        android:dividerHeight="2dp">
-    </ListView>
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>
