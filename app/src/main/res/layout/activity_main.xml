@@ -6,35 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/numbers_activity_link"
-        style="@style/categoryStyle"
-        android:text="@string/numbers"
-        android:background="@android:color/holo_orange_dark"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="openNumbersActivity"/>
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/family_activity_link"
-        style="@style/categoryStyle"
-        android:text="@string/family"
-        android:background="@android:color/holo_green_dark"
-        app:layout_constraintTop_toBottomOf="@+id/numbers_activity_link"
-        android:onClick="openFamilyActivity"/>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            app:tabMode="fixed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabGravity="fill"
+            app:layout_constraintTop_toTopOf="parent">
+        </android.support.design.widget.TabLayout>
 
-    <TextView
-        android:id="@+id/colors_activity_link"
-        style="@style/categoryStyle"
-        android:text="@string/colors"
-        android:background="@android:color/holo_purple"
-        app:layout_constraintTop_toBottomOf="@+id/family_activity_link"
-        android:onClick="openColorsActivity"/>
+    </android.support.design.widget.AppBarLayout>
 
-    <TextView
-        android:id="@+id/phrases_activity_link"
-        style="@style/categoryStyle"
-        android:text="@string/phrases"
-        android:background="@android:color/holo_blue_dark"
-        app:layout_constraintTop_toBottomOf="@+id/colors_activity_link"
-        android:onClick="openPhrasesActivity"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="49dp">
+    </android.support.v4.view.ViewPager>
+
 </android.support.constraint.ConstraintLayout>
