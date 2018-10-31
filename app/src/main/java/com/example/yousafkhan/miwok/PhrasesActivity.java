@@ -29,21 +29,21 @@ public class PhrasesActivity extends AppCompatActivity implements AudioManager.O
 
     private void populatePhrasesList() {
         this.phrasesList = new ArrayList<>();
-        this.phrasesList.add(new Translation("Where are you going?", "minto wuksus", R.raw.phrase_where_are_you_going));
-        this.phrasesList.add(new Translation("What is your name?", "tinnә oyaase'nә", R.raw.phrase_what_is_your_name));
-        this.phrasesList.add(new Translation("My name is...", "oyaaset...", R.raw.phrase_my_name_is));
-        this.phrasesList.add(new Translation("How are you feeling?", "michәksәs?", R.raw.phrase_how_are_you_feeling));
-        this.phrasesList.add(new Translation("I am feeling good", "kuchi achit?", R.raw.phrase_im_feeling_good));
-        this.phrasesList.add(new Translation("Are you coming?", "әәnәs'aa?", R.raw.phrase_are_you_coming));
-        this.phrasesList.add(new Translation("Yes, i am coming", "hәә’ әәnәm", R.raw.phrase_yes_im_coming));
-        this.phrasesList.add(new Translation("I am coming", "әәnәm", R.raw.phrase_im_coming));
-        this.phrasesList.add(new Translation("Let's go", "yoowutis", R.raw.phrase_lets_go));
-        this.phrasesList.add(new Translation("Come here", "әnni'nem", R.raw.phrase_come_here));
+        this.phrasesList.add(new Translation("Where are you going?", "minto wuksus", R.raw.phrase_where_are_you_going, R.color.darkBlue));
+        this.phrasesList.add(new Translation("What is your name?", "tinnә oyaase'nә", R.raw.phrase_what_is_your_name, R.color.darkBlue));
+        this.phrasesList.add(new Translation("My name is...", "oyaaset...", R.raw.phrase_my_name_is, R.color.darkBlue));
+        this.phrasesList.add(new Translation("How are you feeling?", "michәksәs?", R.raw.phrase_how_are_you_feeling, R.color.darkBlue));
+        this.phrasesList.add(new Translation("I am feeling good", "kuchi achit?", R.raw.phrase_im_feeling_good, R.color.darkBlue));
+        this.phrasesList.add(new Translation("Are you coming?", "әәnәs'aa?", R.raw.phrase_are_you_coming, R.color.darkBlue));
+        this.phrasesList.add(new Translation("Yes, i am coming", "hәә’ әәnәm", R.raw.phrase_yes_im_coming, R.color.darkBlue));
+        this.phrasesList.add(new Translation("I am coming", "әәnәm", R.raw.phrase_im_coming, R.color.darkBlue));
+        this.phrasesList.add(new Translation("Let's go", "yoowutis", R.raw.phrase_lets_go, R.color.darkBlue));
+        this.phrasesList.add(new Translation("Come here", "әnni'nem", R.raw.phrase_come_here, R.color.darkBlue));
     }
 
     private void populatePhrasesListview() {
         listView = findViewById(R.id.phrases_listview);
-        PhrasesAdapter phrasesAdapter = new PhrasesAdapter(this, this.phrasesList);
+        TranslationAdapter phrasesAdapter = new TranslationAdapter(this, this.phrasesList);
         listView.setAdapter(phrasesAdapter);
     }
 

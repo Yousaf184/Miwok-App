@@ -3,17 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingLeft="12dp"
     android:paddingRight="12dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:id="@+id/listview_item_layout">
 
     <ImageView
         android:id="@+id/image_icon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:background="@android:color/white"/>
 
     <LinearLayout
+        android:id="@+id/translation_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/image_icon"
@@ -24,12 +25,23 @@
 
         <TextView
             android:id="@+id/english_word"
-            style="@style/listview_item_style" />
+            style="@style/listview_item_style"
+            android:text="@string/placeholder"/>
 
         <TextView
             android:id="@+id/miwok_word"
             style="@style/listview_item_style"
+            android:text="@string/placeholder"
             app:layout_constraintTop_toBottomOf="@+id/english_word" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/playIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_play_arrow_24"
+        app:layout_constraintTop_toTopOf="@id/image_icon"
+        app:layout_constraintBottom_toBottomOf="@id/image_icon"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

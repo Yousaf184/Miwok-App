@@ -1,8 +1,5 @@
 package com.example.yousafkhan.miwok;
 
-import android.content.Context;
-import android.media.AudioAttributes;
-import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -32,19 +29,19 @@ public class ColorsActivity extends AppCompatActivity implements AudioManager.On
 
     private void populateColorsList() {
         this.colorsList = new ArrayList<>();
-        this.colorsList.add(new Translation("red", "weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
-        this.colorsList.add(new Translation("green", "chokokki", R.drawable.color_green, R.raw.color_green));
-        this.colorsList.add(new Translation("brown", "ṭakaakki", R.drawable.color_brown, R.raw.color_brown));
-        this.colorsList.add(new Translation("gray", "ṭopoppi", R.drawable.color_gray, R.raw.color_gray));
-        this.colorsList.add(new Translation("black", "kululli", R.drawable.color_black, R.raw.color_black));
-        this.colorsList.add(new Translation("white", "kalelli", R.drawable.color_white, R.raw.color_white));
-        this.colorsList.add(new Translation("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow));
-        this.colorsList.add(new Translation("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
+        this.colorsList.add(new Translation("red", "weṭeṭṭi", R.drawable.color_red, R.raw.color_red, R.color.purple));
+        this.colorsList.add(new Translation("green", "chokokki", R.drawable.color_green, R.raw.color_green, R.color.purple));
+        this.colorsList.add(new Translation("brown", "ṭakaakki", R.drawable.color_brown, R.raw.color_brown, R.color.purple));
+        this.colorsList.add(new Translation("gray", "ṭopoppi", R.drawable.color_gray, R.raw.color_gray, R.color.purple));
+        this.colorsList.add(new Translation("black", "kululli", R.drawable.color_black, R.raw.color_black, R.color.purple));
+        this.colorsList.add(new Translation("white", "kalelli", R.drawable.color_white, R.raw.color_white, R.color.purple));
+        this.colorsList.add(new Translation("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow, R.color.purple));
+        this.colorsList.add(new Translation("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow, R.color.purple));
     }
 
     private void populateColorsListView() {
         listView = findViewById(R.id.colors_listview);
-        ColorsAdapter colorsAdapter = new ColorsAdapter(this, this.colorsList);
+        TranslationAdapter colorsAdapter = new TranslationAdapter(this, this.colorsList);
         listView.setAdapter(colorsAdapter);
     }
 
